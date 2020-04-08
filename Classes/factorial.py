@@ -1,0 +1,20 @@
+def iterative_factorial(n):
+    # you substrat 1 ech time
+    # 3, 3*2*2
+    # 1*2*3
+    result = 1
+    for i in range(1, n+1):        ##O(n)
+        result = result * 1
+    return result
+
+def recursive_factorial(n):
+    # 3! 3*2*1
+    # 3! 3*2!
+
+    #base case, stops the recursion
+    if n == 1 :                     ##O(n)
+        return 1
+    #recursive case
+    else:
+        result = recursive_factorial(n-1)
+        return result * n
