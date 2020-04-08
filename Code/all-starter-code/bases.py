@@ -23,6 +23,19 @@ def decode(digits, base):
     # ...
     # TODO: Decode digits from any base (2 up to 36)
     # ...
+    digits = digits[::-1]
+    decode_num = 0
+    for i in range(len(digits)):
+        if digits[i].isalpha():
+            digit = string.ascii_lowercase(digits[i].lower()) + 10
+        else:
+            # power = len(digits) - i - 1 # Get the power
+            #digit * base ^ power
+            digit = int(digits[i])
+        decode_num += digit * base ** i
+        #Another way to do this would be
+        #decode_num += digit * (base ** (len(digits) - i - 1))
+    return decode_num
 
 
 def encode(number, base):
@@ -42,6 +55,7 @@ def encode(number, base):
     # ...
 
 
+
 def convert(digits, base1, base2):
     """Convert given digits in base1 to digits in base2.
     digits: str -- string representation of number (in base1)
@@ -59,6 +73,17 @@ def convert(digits, base1, base2):
     # ...
     # TODO: Convert digits from any base to any base (2 up to 36)
     # ...
+    #"1 0 1 1"
+    digits = digits[::-1]
+    decimal_num = 0
+    for i in range(len(digits)):
+        digit = digits[i]
+        print(digit)
+        #digit * base ^ power
+        digit = int(digit, base=16)
+        digit * base ** i
+        decimal_num += digit * base ** i
+    return decimal_num
 
 
 def main():
@@ -79,3 +104,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    print(decode("A16", base))
