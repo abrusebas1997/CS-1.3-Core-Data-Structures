@@ -23,6 +23,19 @@ def decode(digits, base):
     # ...
     # TODO: Decode digits from any base (2 up to 36)
     # ...
+    digits = digits[::-1]
+    decode_num = 0
+    for i in range(len(digits)):
+        if digits[i].isalpha():
+            digit = string.ascii_lowercase(digits[i].lower()) + 10
+        else:
+            # power = len(digits) - i - 1 # Get the power
+            #digit * base ^ power
+            digit = int(digits[i])
+        decode_num += digit * base ** i
+        #Another way to do this would be
+        #decode_num += digit * (base ** (len(digits) - i - 1))
+    return decode_num
 
 
 def encode(number, base):
