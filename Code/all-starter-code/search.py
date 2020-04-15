@@ -33,7 +33,9 @@ def binary_search(array, item):
 
 def binary_search_iterative(array, item):
     # TODO: implement binary search iteratively here
-    # picked the middle of array
+    #once implemented, change binary_search to call binary_search_iterative
+    #to verify that your iterative implementation passes all test
+    # picked the middle of array, compared the target to the middle element if it was greater or smaller, and then discarded on half
     # [5, 6, 7, 10, 12]
     left_index = 0
     right_index = len(array) - 1
@@ -44,7 +46,7 @@ def binary_search_iterative(array, item):
         print("Middle index ", mid_index)
         print("Left index", left_index)
         print("Right index", right_index)
-
+        # is the middle item what we are looking for?
         if array[mid_index] == item:
             print("Found It")
             return mid_index
@@ -54,10 +56,13 @@ def binary_search_iterative(array, item):
             right_index = mid_index - 1
             print("Right Index", right_index)
             print("Left Index", left_index)
+            # binary_search_iterative(array, item, left_index, right_index, mid_index - 1)
         elif item > array[mid_index]:
             print("Entered ignore left")
             left_index = mid_index + 1
-        input("Next")
+            # if the item > item at the middle we ignore the left party of the array
+    return None
+
     # once implemented, change binary_search to call binary_search_iterative
     # to verify that your iterative implementation passes all tests
 
