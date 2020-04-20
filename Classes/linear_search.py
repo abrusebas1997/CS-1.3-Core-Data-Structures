@@ -27,4 +27,4 @@ def recursive_search(list, target, index):
 #             return s+1
 #         return False        # returns false if key not found
 #
-# print(recursive_search(list, target))
+print(recursive_search(list, 5, 1))
