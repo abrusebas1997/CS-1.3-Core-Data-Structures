@@ -19,7 +19,21 @@ def is_palindrome(text):
 
 def is_palindrome_iterative(text):
     # TODO: implement the is_palindrome function iteratively here
-    pass
+    empty_string = ''
+    for letter in text.lower():
+      if string.ascii_lowercase.find(letter) >= 0:
+          empty_string += letter
+
+    left_index = 0
+    right_index = len(empty_string) - 1
+
+    # Loop through string, dividing 1/2 each time and see if they don't match then break out loop return False
+    while left_index < right_index:
+      if empty_string[left_index] != empty_string[right_index]:
+        return False
+      left_index += 1
+      right_index -= 1
+    return True
     # once implemented, change is_palindrome to call is_palindrome_iterative
     # to verify that your iterative implementation passes all tests
 
