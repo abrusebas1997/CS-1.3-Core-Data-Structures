@@ -23,7 +23,7 @@ def find_index(text, pattern):
     #You could also do it with the len(pattern) == 0
     if pattern == '':
         return 0
-    while index <= len(text) - 1:
+    while index < len(text):
         if text[index] == pattern[index_pattern]:
             index += 1
             index_pattern += 1
@@ -42,6 +42,37 @@ def find_all_indexes(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
+    # If lenght of pattern is 0 return list of all indexes of text
+    if len(pattern) == 0:
+        return list(range(len(text)))
+
+    index = find_index(text, pattern)
+    index_list = []
+
+    if index != None:
+        index_list.append(index)
+
+        index += 1
+        start = index
+        index_pattern = 0
+
+        while index < len(text):
+            if text[index] == pattern[index_pattern]:
+                index += 1
+                index_pattern += 1
+
+                if index_pattern == len(pattern):
+                    index_list.append(start)
+                    index_pattern = 0
+                    start += 1
+                    index = start
+
+            else:
+                index_pattern = 0
+                start += 1
+                index = start
+        return index_list
+    return index_list
 
 
 def test_string_algorithms(text, pattern):
