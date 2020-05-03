@@ -1,4 +1,5 @@
 #!python
+# This link helped me a lot to understand stacks: https://www.codesdope.com/course/data-structures-stacks/
 
 from linkedlist import LinkedList
 
@@ -22,21 +23,31 @@ class LinkedStack(object):
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
         # TODO: Check if empty
+        # if the head of the stack is none, then the stack is gonna be empty
+        if self.list.head == None:
+            return True
+        else:
+            return False
 
     def length(self):
         """Return the number of items in this stack."""
         # TODO: Count number of items
-
+        return self.list.size
     def push(self, item):
         """Insert the given item on the top of this stack.
         Running time: O(???) – Why? [TODO]"""
         # TODO: Push given item
+        # if the list is empty we need to prepend
+        self.list.prepend(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
         # TODO: Return top item, if any
-
+        if self.is_empty() == True:
+            return
+        else:
+            return self.list.tail.data
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
