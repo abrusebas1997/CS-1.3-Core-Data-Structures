@@ -154,11 +154,16 @@ class HashTable(object):
             new_size = len(self.buckets) / 2  # Half size
         # TODO: Get a list to temporarily hold all current key-value entries
         # ...
+        temporarily = self.items()
         # TODO: Create a new list of new_size total empty linked list buckets
         # ...
+        self.buckets = [LinkedList() for i in range(new_size)]
+        self.size = 0
         # TODO: Insert each key-value entry into the new list of buckets,
         # which will rehash them into a new bucket index based on the new size
         # ...
+        for key, value in old_items:
+            self.set(key, value)
 
 
 def test_hash_table():
