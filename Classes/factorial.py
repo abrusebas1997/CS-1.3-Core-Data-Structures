@@ -1,6 +1,6 @@
 def iterative_factorial(n):
-    # you substrat 1 ech time
-    # 3, 3*2*2
+    # you substract 1 each time
+    # 3, 3*2*1
     # 1*2*3
     result = 1
     for i in range(1, n+1):        ##O(n)

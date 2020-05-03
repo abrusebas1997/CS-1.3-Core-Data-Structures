@@ -1,3 +1,5 @@
+#using stacks is a really good way to understand the recursion
+
 def factorial(n):
     if n == 1:
         return 1 #base case
