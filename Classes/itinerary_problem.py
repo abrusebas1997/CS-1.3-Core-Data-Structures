@@ -3,9 +3,9 @@ def get_itinerary(tickets):
     from_to_dictionary = {}
 
     #build a from to dictionary
-    for item in tickets:
-        from_island = item[0]
-        to_island = item[1]
+    for ticket in tickets:
+        from_island = ticket[0]
+        to_island = ticket[1]
         from_to_dictionary[from_island] = to_island
 
     #find the start
