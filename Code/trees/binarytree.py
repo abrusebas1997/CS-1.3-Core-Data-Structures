@@ -17,11 +17,7 @@ class BinaryTreeNode(object):
         """Return True if this node is a leaf (has no children)."""
         # TODO: Check if both left child and right child have no value
         #If there are no nodes on the left or right, then is a leaf and it has no children
-        if self.left == None and self.right == None:
-            return True
-        #if there is a node on the right or left, then it has a children()
-        else:
-            return False
+        return self.left is None and self.right is None
 
     def is_branch(self):
         """Return True if this node is a branch (has at least one child)."""
@@ -38,11 +34,16 @@ class BinaryTreeNode(object):
         downward path from this node to a descendant leaf node).
         TODO: Best and worst case running time: ??? under what conditions?"""
         # TODO: Check if left child has a value and if so calculate its height
-        ...
+        if self.is_leaf():
+            return 0
         # TODO: Check if right child has a value and if so calculate its height
-        ...
+        if self.left is None:
+            return self.right.height() + 1
         # Return one more than the greater of the left height and right height
-        ...
+        elif self.right is None:
+            return self.left.height() + 1
+        else:
+            return max(self.right.height(), self.left.height()) + 1
 
 
 class BinarySearchTree(object):
@@ -68,6 +69,8 @@ class BinarySearchTree(object):
         downward path from this tree's root node to a descendant leaf node).
         TODO: Best and worst case running time: ??? under what conditions?"""
         # TODO: Check if root node has a value and if so calculate its height
+        if is_empty() = False:
+            return self.root.height()
 
 
     def contains(self, item):
@@ -87,8 +90,10 @@ class BinarySearchTree(object):
         # Find a node with the given item, if any
         node = self._find_node_recursive(item, self.root)
         # TODO: Return the node's data if found, or None
+        # if the node doesn't exist
         if node is None:
             return None
+        # if it does
         else:
             return item
 
